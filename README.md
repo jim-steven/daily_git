@@ -1,1 +1,1 @@
-# daily_git
+# daily-git-summary
