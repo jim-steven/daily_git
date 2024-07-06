@@ -75,7 +75,8 @@ else:
         for repo, repo_group in group.groupby('repo'):
             st.header(f"{date} - {repo.capitalize()}")
             for _, row in repo_group.iterrows():
-                st.markdown(f"<span style='font-weight: bold; font-size: 17px;'>[{row['author']}] {row['title']} [({row['issue']})]({row['links']})</span>", unsafe_allow_html=True)
+                tweet_it = " 📢 " if "release" in row['title'].lower() else ""
+                st.markdown(f"<span style='font-weight: bold; font-size: 17px;'>[{row['author']}] {row['title']} [({row['issue']})]({row['links']}) {tweet_it} {tweet_it} {tweet_it} </span>", unsafe_allow_html=True)
                 st.write(f"Summary: {row['summary']}")
                 with st.expander("⨁ Description"):
                     st.write(row['description'])
